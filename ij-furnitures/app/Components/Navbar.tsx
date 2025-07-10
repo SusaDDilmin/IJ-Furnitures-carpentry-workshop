@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center bg-white text-gray-800 px-4 py-6 md:px-10 md:py-8 shadow-lg sticky top-0 z-50">
+    <nav className="flex justify-between items-center bg-white text-gray-800 px-4 py-6 md:px-10 md:py-8 shadow-lg sticky top-0 z-50 ">
         <Link href="/" className="flex items-center gap-4">
             <House
             size={36}
