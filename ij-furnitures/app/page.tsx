@@ -8,10 +8,10 @@ export default function Home() {
       {
         // First part of the Home
       }
-      <div className="bg-[url('/images/HomeImgTwo.avif')] md:bg-[url('/images/HomeImgOne.jpg')] w-full bg-right bg-cover " style={{height: 'calc(100vh - 84px)' }} >
+      <div className="bg-[url('/images/HomeImgTwo.avif')] md:bg-[url('/images/HomeImgOne.jpg')] w-full bg-right bg-cover min-h-[750px]" style={{height: 'calc(100vh - 84px)' }}>
         <div className="bg-black/10 backdrop-blur-md h-full w-full">
 
-          <div className="py-30 px-8 md:p-20 md:pt-40 flex flex-col gap-8" >
+          <div className="py-20 px-8 md:p-20 md:pt-30 flex flex-col gap-8" >
             <h1 className="text-white text-4xl md:text-7xl font-bold ">Expert Carpentry & <br/>Woodworking <br/>Services</h1>
 
             <p className="text-white text-2xl md:text-4xl ">Transform your space with our professional carpentry services. From custom furniture to 
