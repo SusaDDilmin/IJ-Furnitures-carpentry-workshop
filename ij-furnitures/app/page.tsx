@@ -12,17 +12,21 @@ export default function Home() {
         <div className="bg-black/10 backdrop-blur-md h-full w-full">
 
           <div className="py-20 px-8 md:p-20 md:pt-30 flex flex-col gap-6" >
-            <h1 className="text-white text-3xl md:text-7xl font-bold ">Expert Carpentry & <br/>Woodworking <br/>Services</h1>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-white text-3xl md:text-7xl font-bold">Expert Carpentry &</h1> 
+              <h1 className="text-white text-3xl md:text-7xl font-bold">Woodworking</h1>
+              <h1 className="text-white text-3xl md:text-7xl font-bold">Services</h1>
+            </div>
 
-            <p className="text-white text-xl md:text-4xl ">Transform your space with our professional carpentry services. From custom furniture to 
+            <p className="text-white text-xl md:text-4xl font-medium text-gray-300">Transform your space with our professional carpentry services. From custom furniture to
               complete renovations, we bring your vision to life with exceptional craftsmanship.
             </p>
             
             <div className="flex flex-col md:flex-row gap-6">
-              <Link href="/pages/gallery" className="bg-amber-900 text-white text-lg font-semibold px-6 py-3 rounded-lg mt-4 inline-block hover:bg-amber-700 transition-colors">
+              <Link href="/pages/gallery" className="bg-amber-900 text-white text-lg font-semibold px-6 py-2 md:py-3 rounded-lg mt-4 inline-block hover:bg-amber-700 transition-colors">
                 View our work
               </Link>
-              <Link href="/pages/gallery" className="bg-white text-black text-lg font-semibold px-6 py-3 rounded-lg mt-4 inline-block hover:bg-amber-200 transition-colors">
+              <Link href="/pages/gallery" className="bg-white text-black text-lg font-semibold px-6 py-2 md:py-3 rounded-lg mt-4 inline-block hover:bg-amber-200 transition-colors">
                 Contact Us
               </Link>
             </div>
