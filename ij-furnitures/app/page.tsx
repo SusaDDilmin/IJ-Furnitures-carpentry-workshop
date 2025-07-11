@@ -8,17 +8,17 @@ export default function Home() {
       {
         // First part of the Home
       }
-      <div className="bg-[url('/images/HomeImgTwo.avif')] md:bg-[url('/images/HomeImgOne.jpg')] w-full bg-right bg-cover min-h-[750px]" style={{height: 'calc(100vh - 84px)' }}>
+      <div className="bg-[url('/images/HomeImgTwo.avif')] md:bg-[url('/images/HomeImgOne.jpg')] w-full bg-right bg-cover" style={{height: 'calc(100vh - 84px)' }}>
         <div className="bg-black/10 backdrop-blur-md h-full w-full">
 
-          <div className="py-20 px-8 md:p-20 md:pt-30 flex flex-col gap-8" >
-            <h1 className="text-white text-4xl md:text-7xl font-bold ">Expert Carpentry & <br/>Woodworking <br/>Services</h1>
+          <div className="py-20 px-8 md:p-20 md:pt-30 flex flex-col gap-6" >
+            <h1 className="text-white text-3xl md:text-7xl font-bold ">Expert Carpentry & <br/>Woodworking <br/>Services</h1>
 
-            <p className="text-white text-2xl md:text-4xl ">Transform your space with our professional carpentry services. From custom furniture to 
+            <p className="text-white text-xl md:text-4xl ">Transform your space with our professional carpentry services. From custom furniture to 
               complete renovations, we bring your vision to life with exceptional craftsmanship.
             </p>
             
-            <div className="flex flex-col md:flex-row gap-6 mt-4">
+            <div className="flex flex-col md:flex-row gap-6">
               <Link href="/pages/gallery" className="bg-amber-900 text-white text-lg font-semibold px-6 py-3 rounded-lg mt-4 inline-block hover:bg-amber-700 transition-colors">
                 View our work
               </Link>
