@@ -63,25 +63,37 @@ export default function Navbar() {
         <ul
           className={`${
             isOpen ? "block" : "hidden"
-          } absolute lg:static top-20 left-0 w-full lg:w-auto bg-white lg:bg-transparent px-6 py-4 lg:p-0 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:gap-6 text-[#4B2E2E] font-medium text-lg font-semibold transition-all duration-300 shadow-md lg:shadow-none z-50`}
+          } absolute lg:static top-20 left-0 w-full lg:w-auto bg-white lg:bg-transparent px-6 py-4 lg:p-0 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:gap-6 text-[#4B2E2E] font-semibold text-lg transition-all duration-300 shadow-md lg:shadow-none z-50 `}
         >
           <li>
-            <a href="#home" className="hover:text-[#6B4C3B] transition">
+            <a
+              href="#home"
+              className="hover:text-[#6B4C3B] transition hover:drop-shadow-[0_0_6px_rgba(107,76,59,0.6)]"
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#services" className="hover:text-[#6B4C3B] transition">
+            <a
+              href="#services"
+              className="hover:text-[#6B4C3B] transition hover:drop-shadow-[0_0_6px_rgba(107,76,59,0.6)]"
+            >
               Services
             </a>
           </li>
           <li>
-            <a href="#gallery" className="hover:text-[#6B4C3B] transition">
+            <a
+              href="#gallery"
+              className="hover:text-[#6B4C3B] transition hover:drop-shadow-[0_0_6px_rgba(107,76,59,0.6)]"
+            >
               Gallery
             </a>
           </li>
           <li>
-            <a href="#team" className="hover:text-[#6B4C3B] transition">
+            <a
+              href="#team"
+              className="hover:text-[#6B4C3B] transition hover:drop-shadow-[0_0_6px_rgba(107,76,59,0.6)]"
+            >
               Our Team
             </a>
           </li>
