@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ServiceCard from "./Components/HomePageComponents/ServiceCard";
+// import ServiceCard from "./Components/HomePageComponents/ServiceCard";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -196,9 +196,7 @@ export default function Home() {
       {/*
         Our Team Section
        */}
-      <div>
-        
-      </div>
+      <div className="bg-white h-screen"></div>
     </div>
   );
 }
