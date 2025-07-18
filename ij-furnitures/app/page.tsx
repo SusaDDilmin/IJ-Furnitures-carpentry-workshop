@@ -203,7 +203,7 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/2">
               <h3 className="text-3xl md:text-4xl font-bold text-[#4B2E2E] mb-3">
-                Hello! I'm{" "}
+                Hello! I&apos;m{" "}
                 <span className="text-amber-700">Edward Emmanuel</span>
               </h3>
               <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
