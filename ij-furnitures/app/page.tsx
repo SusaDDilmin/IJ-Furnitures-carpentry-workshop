@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ServiceCard from "./Components/HomePageComponents/ServiceCard";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         <div className="bg-black/10 backdrop-blur-md h-full w-full">
 
           <div className="py-20 px-8 md:p-20 md:pt-30 flex flex-col gap-6" >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 md:gap-4">
               <h1 className="text-white text-3xl md:text-7xl font-bold">Expert Carpentry &</h1> 
               <h1 className="text-white text-3xl md:text-7xl font-bold">Woodworking</h1>
               <h1 className="text-white text-3xl md:text-7xl font-bold">Services</h1>
@@ -48,9 +49,22 @@ export default function Home() {
           <p className="md:text-xl text-gray-600" >We specialize in high-quality carpentry and woodworking services, bringing decades of experience to every project.</p>
         </div>
         <div className="w-full h-500px flex justify-center items-center">
-          <h1>Service Card...</h1>
+          <div className="flex overflow-hidden  ">
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+            <ServiceCard title="Custom Furniture" description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship." link="/pages/gallery" />
+          </div>
         </div>
       </div>
     </div>
+
   );
 }

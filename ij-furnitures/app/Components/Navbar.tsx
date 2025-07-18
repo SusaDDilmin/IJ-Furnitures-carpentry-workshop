@@ -1,98 +1,100 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, House, X } from "lucide-react";
+import { useState, useRef, useEffect, use } from "react";
+import { Menu, X } from "lucide-react"; // Optional: You can also use Heroicons or SVGs
+
+import gsap from "gsap";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const xRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Show X icon
+      gsap.to(menuRef.current, { opacity: 0, rotate: 90, duration: 0.3 });
+      gsap.fromTo(
+        xRef.current,
+        { opacity: 0, rotate: -90 },
+        { opacity: 1, rotate: 0, duration: 0.3, delay: 0.15 }
+      );
+    } else {
+      // Show Menu icon
+      gsap.to(xRef.current, { opacity: 0, rotate: 90, duration: 0.3 });
+      gsap.fromTo(
+        menuRef.current,
+        { opacity: 0, rotate: -90 },
+        { opacity: 1, rotate: 0, duration: 0.3, delay: 0.15 }
+      );
+    }
+  }, [isOpen]);
 
   return (
-    <nav className="flex justify-between items-center bg-white text-gray-800 px-4 py-6 md:px-10 md:py-6 shadow-lg sticky top-0 z-50 ">
-        <Link href="/" className="flex items-center gap-4">
-            <House
-            size={36}
-            className="text-amber-900 border-2 border-amber-900 rounded-full p-1"
-            />
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-            IJ Furnitures
-            </h1>
-        </Link>
-
-        <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-        >
-            {isOpen ? (
-                <X size={32} className="text-gray-800" />
-                ) : (
-                <Menu size={32} className="text-gray-800" />
-            )}
-        </button>
-
-      {isOpen && (
-            <div className="md:hidden absolute top-20 right-4 w-64 bg-white rounded-xl shadow-2xl p-5 flex flex-col text-base font-medium text-gray-700 animate-slideDown z-50">
-                <Link
-                    href="/"
-                    className="hover:text-amber-700 transition-colors"
-                >
-                    Home
-                </Link>
-                <hr className="my-2 border-gray-200" />
-
-                <Link
-                    href="/pages/gallery"
-                    className="hover:text-amber-700 transition-colors"
-                >
-                    Gallery
-                </Link>
-                <hr className="my-2 border-gray-200" />
-
-                <Link
-                    href="/pages/about"
-                    className="hover:text-amber-700 transition-colors"
-                >
-                    Who we are
-                </Link>
-                <hr className="my-2 border-gray-200" />
-
-                <Link
-                    href="/pages/contact"
-                    className="hover:text-amber-700 transition-colors"
-                >
-                    Contact Us
-                </Link>
-            </div>
-        )}
-
-        {/* Desktop menu */}
-        <div className="hidden md:flex gap-10 text-lg font-semibold items-center">
-            <Link
-                href="/"
-                className="hover:text-amber-700 transition-colors"
-            >
-                Home
-            </Link>
-            <Link
-                href="/pages/gallery"
-                className="hover:text-amber-700 transition-colors"
-            >
-                Gallery
-            </Link>
-            <Link
-                href="/pages/about"
-                className="hover:text-amber-700 transition-colors"
-            >
-                Who we are
-            </Link>
-            <Link
-                href="/pages/contact"
-                className="bg-amber-900 text-white px-4 py-2 rounded-full hover:bg-amber-800 transition-colors"
-            >
-                Contact Us
-            </Link>
+    <nav className="bg-white shadow-md py-4 px-6">
+      <div className="flex items-center justify-between">
+        {/* Logo */}
+        <div className="text-3xl lg:text-4xl font-extrabold text-[#4B2E2E]">
+          🪚 CraftWorks
         </div>
+
+        {/* Hamburger for mobile */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-[#4B2E2E] transition-transform duration-300 ease-in-out"
+          >
+            {isOpen ? (
+              <div ref={xRef}>
+                <X size={28} className="transform rotate-90" />
+              </div>
+            ) : (
+              <div ref={menuRef}>
+                <Menu
+                  size={28}
+                  className="transform scale-100 hover:scale-125"
+                />
+              </div>
+            )}
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <ul
+          className={`${
+            isOpen ? "block" : "hidden"
+          } absolute lg:static top-20 left-0 w-full lg:w-auto bg-white lg:bg-transparent px-6 py-4 lg:p-0 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:gap-6 text-[#4B2E2E] font-medium text-lg font-semibold transition-all duration-300 shadow-md lg:shadow-none z-50`}
+        >
+          <li>
+            <a href="#home" className="hover:text-[#6B4C3B] transition">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="hover:text-[#6B4C3B] transition">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#gallery" className="hover:text-[#6B4C3B] transition">
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a href="#team" className="hover:text-[#6B4C3B] transition">
+              Our Team
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="block text-center bg-[#4B2E2E] text-white px-5 py-2 rounded-full hover:bg-[#6B4C3B] transition"
+            >
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }
