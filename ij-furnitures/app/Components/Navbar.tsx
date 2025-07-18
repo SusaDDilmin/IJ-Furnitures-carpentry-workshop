@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react"; // Optional: You can also use Heroicons or SVGs
 
 import gsap from "gsap";
