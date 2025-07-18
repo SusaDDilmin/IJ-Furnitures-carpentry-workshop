@@ -9,8 +9,51 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const services = [
+  {
+    title: "Custom Furniture",
+    description: "...",
+    link: "/pages/gallery",
+  },
+  {
+    title: "Roof Construction",
+    description: "...",
+    link: "/pages/gallery",
+  },
+  {
+    title: "Wood Carving",
+    description: "...",
+    link: "/pages/gallery",
+  },
+  {
+    title: "Cabinet Making",
+    description: "...",
+    link: "/pages/gallery",
+  },
+];
+
 export default function Home() {
   const heroRef = useRef(null);
+
+  const containerRef = useRef(null);
+  const cardsWrapperRef = useRef(null);
+
+  useEffect(() => {
+    const cards = gsap.utils.toArray(".service-card");
+
+    gsap.to(cards, {
+      xPercent: -100 * (cards.length - 0.85),
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: `+=${cards.length * 100}%`,
+        pin: true,
+        scrub: 1,
+        snap: 1 / (cards.length - 1),
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -96,51 +139,65 @@ export default function Home() {
       {
         // Second part of the Home
       }
-      <div className="w-full bg-[#fdf5ee] min-h-[100vh] flex items-center">
+      <div className="w-full bg-[#fdf5ee] min-h-screen flex">
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full py-10 md:py-20">
-          {/* Header Section */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#4B2E2E]">
-                Our Services
-              </h2>
-              <p className="text-gray-600 md:text-lg mt-2 max-w-xl">
-                We specialize in high-quality carpentry and woodworking
-                services, bringing decades of experience to every project.
-              </p>
+          <section
+            ref={containerRef}
+            className="relative w-full overflow-hidden"
+          >
+            {/* Header Section */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 mt-10 gap-4">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-[#4B2E2E]">
+                  Our Services
+                </h2>
+                <p className="text-gray-600 md:text-lg mt-2 max-w-xl pl-1">
+                  We specialize in high-quality carpentry and woodworking
+                  services, bringing decades of experience to every project.
+                </p>
+              </div>
+              <Link
+                href="/pages/gallery"
+                className="bg-[#4B2E2E] text-white text-base md:text-lg font-semibold px-6 py-3 rounded-lg hover:bg-[#6B4C3B] transition"
+              >
+                Learn More
+              </Link>
             </div>
-            <Link
-              href="/pages/gallery"
-              className="bg-[#4B2E2E] text-white text-base md:text-lg font-semibold px-6 py-3 rounded-lg hover:bg-[#6B4C3B] transition"
-            >
-              Learn More
-            </Link>
-          </div>
 
-          {/* Services Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <ServiceCard
-              title="Custom Furniture"
-              description="From custom furniture to complete renovations, we bring your vision to life with exceptional craftsmanship."
-              link="/pages/gallery"
-            />
-            <ServiceCard
-              title="Roof Construction"
-              description="Expertly crafted roofs that blend durability and style to protect and enhance your home."
-              link="/pages/gallery"
-            />
-            <ServiceCard
-              title="Wood Carving"
-              description="Intricate and decorative carvings that add timeless beauty to your interiors."
-              link="/pages/gallery"
-            />
-            <ServiceCard
-              title="Cabinet Making"
-              description="Custom cabinets that combine utility and beauty for every space."
-              link="/pages/gallery"
-            />
-          </div>
+            {/* Services Cards Grid */}
+            <div
+              ref={cardsWrapperRef}
+              className="flex space-x-4 sm:space-x-8 w-max h-[550px] sm:h-[600px] px-4 sm:px-6"
+            >
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="service-card shrink-0 w-[90vw] sm:w-[380px] h-[500px] sm:h-[550px] bg-white rounded-2xl shadow-xl flex flex-col justify-between items-start p-5 sm:p-7 transition-all scale-70 opacity-50"
+                >
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-800">
+                    {service.title}
+                  </h2>
+                  <p className="text-gray-600 mb-5 text-base sm:text-lg leading-relaxed">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={service.link}
+                    className="text-blue-600 hover:underline text-base sm:text-lg"
+                  >
+                    Learn More →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
+      </div>
+
+      {/*
+        Our Team Section
+       */}
+      <div>
+        
       </div>
     </div>
   );
